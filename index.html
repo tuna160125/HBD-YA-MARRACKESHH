@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7e8ef">
+  <title>A little birthday world for you</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css?v=8">
+</head>
+<body>
+  <main class="app-shell" aria-live="polite">
+    <div class="ambient" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+
+    <section class="screen screen--active intro-screen" id="intro" aria-labelledby="intro-title">
+      <div class="intro-card glass-card">
+        <p class="eyebrow">a little something made with love</p>
+        <h1 id="intro-title">Do you want to see your gifts?</h1>
+        <div class="choice-row">
+          <button class="button button--primary" id="open-gifts" type="button">YES</button>
+          <button class="button button--disabled" type="button" disabled aria-disabled="true">NO</button>
+        </div>
+        <p class="arabic-line" lang="ar" dir="rtl">✨🐣 يسعدلي عيون الكتكوت</p>
+      </div>
+    </section>
+
+    <section class="screen menu-screen" id="gift-menu" aria-labelledby="menu-title" hidden>
+      <div class="menu-wrap">
+        <p class="eyebrow">your birthday collection</p>
+        <h2 id="menu-title" class="arabic-title" lang="ar" dir="rtl">✨🦋 إلى فراشتي الحلوة</h2>
+        <nav class="gift-grid" aria-label="Your gifts">
+          <button class="gift-card gift-card--bouquet" data-view="bouquet" type="button"><img class="gift-card__art" src="assets/images/bouquet/bouquet.png" alt=""><span class="gift-card__number">01</span><span>A Bouquet<br>For You</span><small>Your flowers are waiting</small></button>
+          <button class="gift-card gift-card--songs" data-view="songs" type="button"><img class="gift-card__art" src="assets/images/birthday/music.png" alt=""><span class="gift-card__number">02</span><span>Songs From<br>Me To You</span><small>Press play when you're ready</small></button>
+          <button class="gift-card gift-card--placeholder" data-view="birthday" type="button"><img class="gift-card__art" src="assets/images/birthday/love letter.png" alt=""><span class="gift-card__number">03</span><span>Happy Birthday<br>&amp; Love Letter</span><small>A letter straight from my heart</small></button>
+          <button class="gift-card gift-card--placeholder" data-view="plans" type="button"><img class="gift-card__art" src="assets/images/birthday/plans.png" alt=""><span class="gift-card__number">04</span><span>Our Future<br>Plans</span><small>A little look at our forever</small></button>
+          <button class="gift-card gift-card--story" data-view="story" type="button"><img class="gift-card__art" src="assets/images/sama-timeline/her-story-icon.png" alt="Illustrated memories of Sama growing up"><span class="gift-card__number">05</span><span>marrackesh<br>lifetime</span><small>My favorite timeline</small></button>
+        </nav>
+      </div>
+    </section>
+
+    <section class="screen detail-screen" id="bouquet" aria-labelledby="bouquet-title" hidden>
+      <header class="detail-header"><button class="back-button" data-back type="button" aria-label="Back to gifts">Back to gifts</button><p class="eyebrow">gift no. 01</p></header>
+      <div class="bouquet-layout">
+        <h2 id="bouquet-title">A Bouquet For You</h2>
+        <div class="bouquet-stage" id="bouquet-stage">
+          <img class="bouquet-image" id="bouquet-image" src="assets/images/bouquet/bouquet.png" alt="A bouquet for you">
+          <div class="quote-cloud" id="quote-cloud" aria-label="Love notes"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen detail-screen songs-screen" id="songs" aria-labelledby="songs-title" hidden>
+      <header class="detail-header"><button class="back-button" data-back type="button" aria-label="Back to gifts">Back to gifts</button><p class="eyebrow">gift no. 02</p></header>
+      <div class="music-layout">
+        <div class="music-copy"><p class="eyebrow">a song, a feeling, a little piece of me</p><h2 id="songs-title">Songs From Me To You</h2></div>
+        <div class="player" id="music-player">
+          <button class="vinyl" id="cover-button" type="button" aria-label="Play song">
+            <span class="cover-placeholder" id="cover-placeholder">Add cover image</span>
+            <img id="song-cover" alt="Song cover artwork" hidden>
+            <span class="vinyl__label" aria-hidden="true"></span>
+          </button>
+          <div class="player-info"><p class="track-label">now playing</p><h3 id="song-title">Song One</h3><p id="song-subtitle">A song from me to you</p></div>
+          <div class="player-controls">
+            <button class="play-button" id="play-toggle" type="button" aria-label="Play song"><span></span></button>
+            <div class="progress-block"><input id="progress" type="range" min="0" max="100" value="0" aria-label="Song progress"><div class="time-row"><time id="current-time">0:00</time><time id="duration">0:00</time></div></div>
+          </div>
+          <button class="tap-to-begin" id="tap-to-begin" type="button" hidden>Tap to begin</button>
+        </div>
+        <div class="next-song-card" id="next-song-card" hidden><p>Ready for another song?</p><button class="button button--primary" id="next-song" type="button">YES</button></div>
+        <div class="song-message glass-card" id="song-message" hidden><p lang="ar" dir="rtl">كل سنة و انتي حبيبتي يا سمسمتي , ايه رايك يا سماسيمو فالاغنيتين دول .. انا بجد حاسس كل كلمة فيهم ليكي يا عمري , اهو دول اغنيتين بيفكروني بيكي دلوقتي بس انتي فاكره لما سالتيني اولمرة ايه الاغنية اللي لما بتسمعها بتفتكرني و قولتلك lunch انا فاكر حتى ان ساعتها قولتيلي ان amira بتفكرك بيا 💕✨</p><h3 lang="ar" dir="rtl">بحبكك يا عمريي</h3></div>
+      </div>
+      <audio id="audio-player" preload="metadata"></audio>
+    </section>
+
+    <section class="screen detail-screen birthday-screen" id="birthday" aria-labelledby="birthday-title" hidden>
+      <header class="detail-header"><button class="back-button" data-back type="button">Back to gifts</button><p class="eyebrow">gift no. 03</p></header>
+      <div class="birthday-letter-wrap">
+        <div class="letter-flourishes" aria-hidden="true">
+          <img src="assets/images/love letter/Tulip_Mail_Sticker-removebg-preview.png" alt="">
+          <img src="assets/images/love letter/Love_You_Heart_Shaped_Phrase__Love_Symbol_Print_by_-removebg-preview.png" alt="">
+          <img src="assets/images/love letter/Stylish_pastel_stickers_with_a_creative_vibe-removebg-preview.png" alt="">
+          <img src="assets/images/love letter/Cute_Heart_Hand_Sticker__Spread_the_Love_-removebg-preview.png" alt="">
+          <img src="assets/images/love letter/474215035786936671-removebg-preview.png" alt="">
+          <img src="assets/images/love letter/Cute_Love_Clipart__Heart_Balloon_Gift__-removebg-preview.png" alt="">
+          <img src="assets/images/love letter/Use_a_well-crafted_picture_to_bring_you_a_unique_-removebg-preview.png" alt="">
+          <img src="assets/images/love letter/278941770667343965-removebg-preview.png" alt="">
+          <img src="assets/images/love letter/50_Happy_Birthday_Card_Ideas-removebg-preview.png" alt="">
+          <img src="assets/images/love letter/489203578297061019-removebg-preview.png" alt="">
+        </div>
+      <article class="birthday-letter glass-card" lang="ar" dir="rtl">
+        <img class="birthday-letter__art" src="assets/images/birthday/love letter.png" alt="Love letter artwork">
+        <p class="eyebrow birthday-letter__eyebrow" dir="ltr">Happy Birthday &amp; Love Letter</p>
+        <h2 id="birthday-title">إلى مراكش</h2>
+        <div class="birthday-letter__body">
+          <p>مراكش .. كل سنة و انتي طيبة يا عمري .. كل سنة و انتي حياتي و حبيبتي و منورة حياتي و جنب بعض دايما يا عمري .. the sweetest 17 ever يا صغنغنتي انتيي .. ربنا يطول ف عمرك و يخليكي ليا يا اغلى حاجة عندي .. كبرتي سنة و احلويتي اكتر يا قطتي .. من يوم ما عرفتك حبيتك و حبي ليكيي بيزيد كل يوم عن اللي قبله .. يارب يومك يكون تحفه يا حبيبتي .. و يارب تحققي كل اللي نفسك فيه يا حياتيي .. معايا طبعاا 🙄 .. مهما بتغلسي أو بتنكدييي علياا بحبكك و بحبك غلاستك و نكدك صراحهه يعنيي و بيوحشوني زي ما انتي بتوحشيني يا بسبوسهه .. بحب كل وقتنا سوا اللي ربنا ما يقطعهه ابداا ياارب و يخليه كله حله و سعاده و فرح و ما يفرق بينا تاني ابدا يارب ..</p>
+          <p>انا اسف لو بزعلك او بدايقك ساعاتت يعنيي مش بيكون قصدي اكيد انا بحبكك .. و انا اسف بردو على اي وقت صعب عديتي بيه بسببي او مش بسببي و انا بجد يا سمسم حابب اقولك شكرا على انك مستحملة عشاني و على مشاعرك و على وقتك و على صبرك عليا و كل حاجة بتقديمها ليا و انا بجد مقدر وجودك ف حياتي و تمسكك بيا و انك معايا لحد دلوقتي و هتفضلي معايا طول العمر يا عمري باذن الله و انا هعمل كل حاجة ف استطاعتي عشان نفضل سوا يا مراكشش ..</p>
+          <p>حابب اقولك انتي احسن حاجة حصلتلي و خليكي ف حياتي دايما يا مراكشش و مش تسبينيي ابداا عشان خلاص انا و حياتي ليكي و فداكيي يا عمريي اناا ف متخليش اي حاجة تفرقنا و اي حاجة هنقدر نعديها سوا باذن الله يا روحي .. ان شاء الله السنة الجاية تكون احسنن و نكونن سواا و اعرف اخليهالك مميزة اكترر .. و اي هوب اكون سبتلك ذكريات حلوة السنة اللي فاتت و السنادي و اسبلك السنين اللي جاية أن شاء الله يا حياتي .. و متخليش حد ياخد مكانيي داا عشان خلاص انتي بتاعتيي 🙄🫶 .. و قدام نبقى سوا و نتجوز و نحقق كل اللي نفسنا فيه أن شاء الله يا انيسة عمري💕🔐 ..</p>
+          <p class="birthday-letter__signature">كل سنة و انتي طيبة و كل سنة و انتي معايا و كل سنة و انتي بخير و مبسوطة و ضحكتك الحلوة دايما على وشك يا كتكوتيي❤️✨ .. بكل حب من زوجك المستقبلي نونو ، حبيتك و هفضل بحبك و هحبك دايما يا مراكش💕✨</p>
+        </div>
+      </article>
+      </div>
+    </section>
+    <section class="screen detail-screen plans-screen" id="plans" aria-labelledby="plans-title" hidden>
+      <header class="detail-header"><button class="back-button" data-back type="button">Back to gifts</button><p class="eyebrow">gift no. 04</p></header>
+      <div class="plans-wrap">
+        <div class="plans-intro glass-card" id="plans-lock">
+          <p class="eyebrow">a little key to our future</p>
+          <h2 id="plans-title">Our Future Plans</h2>
+          <label for="special-date">What is our special date?</label>
+          <input id="special-date" type="text" inputmode="numeric" autocomplete="off" placeholder="DDMMYY">
+          <button class="button button--primary" id="unlock-plans" type="button">UNLOCK</button>
+          <p class="date-error" id="date-error" role="alert" hidden>Try again, my love.</p>
+        </div>
+        <div class="plans-board" id="plans-board" hidden aria-live="polite">
+          <p class="eyebrow">our little promises</p>
+          <h2>Our Future Plans</h2>
+          <p class="plans-hint">Tap a card to turn it over.</p>
+          <div class="plans-grid" id="plans-grid"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen detail-screen story-screen" id="story" aria-labelledby="story-title" hidden>
+      <header class="detail-header"><button class="back-button" data-back type="button">Back to gifts</button><p class="eyebrow">gift no. 05</p></header>
+      <div class="story-intro">
+        <p class="eyebrow">a little scrapbook of you</p>
+        <h2 id="story-title">Her Story <span aria-hidden="true">♡</span></h2>
+        <p>my favorite timeline.</p>
+        <span class="story-scroll-cue" aria-hidden="true">↓</span>
+      </div>
+      <div class="story-timeline" id="story-timeline" aria-label="Sama growing up through the years"></div>
+      <footer class="story-ending">
+        <p>from the little girl you were…</p>
+        <p>to the person you are today.</p>
+        <h3>I would&apos;ve loved every version of you. <span aria-hidden="true">♡</span></h3>
+        <span class="story-heart" aria-hidden="true">♡</span>
+      </footer>
+    </section>
+
+    <button class="chat-entry" id="chat-entry" type="button" hidden aria-haspopup="dialog">Leave a Message</button>
+    <section class="chat-overlay" id="chat-overlay" role="dialog" aria-modal="true" aria-labelledby="chat-title" hidden>
+      <div class="chat-panel glass-card">
+        <button class="chat-close" id="chat-close" type="button" aria-label="Close chat">Close</button>
+        <div class="chat-access" id="chat-access" hidden>
+          <p class="eyebrow">one little secret before we talk</p>
+          <h2 id="chat-title">A private little space</h2>
+          <p>Enter our code to open the conversation.</p>
+          <label for="chat-code">Access code</label>
+          <div class="chat-code-field">
+            <input id="chat-code" type="text" inputmode="numeric" autocomplete="one-time-code" placeholder="••••••" aria-describedby="chat-code-privacy">
+            <span class="chat-code-mask" id="chat-code-mask" aria-hidden="true" hidden></span>
+          </div>
+          <button class="chat-code-toggle" id="chat-code-toggle" type="button" aria-controls="chat-code" aria-pressed="false">Show password</button>
+          <span class="sr-only" id="chat-code-privacy">The code is hidden with hearts by default.</span>
+          <button class="button button--primary" id="chat-unlock" type="button">OPEN CHAT</button>
+          <p class="chat-error" id="chat-access-error" role="alert" hidden></p>
+        </div>
+        <div class="chat-conversation" id="chat-conversation" hidden>
+          <div class="chat-heading"><p class="eyebrow">just us</p><h2 id="chat-title-conversation">Leave a Message</h2></div>
+          <div class="chat-status" id="chat-status" aria-live="polite">Loading our conversation…</div>
+          <div class="chat-messages" id="chat-messages" aria-live="polite"></div>
+          <form class="chat-form" id="chat-form">
+            <label class="sr-only" for="chat-message">Your message</label>
+            <textarea id="chat-message" rows="2" maxlength="2000" placeholder="Write something sweet…" required></textarea>
+            <button class="button button--primary" id="chat-send" type="submit">SEND</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="js/script.js?v=5"></script>
+  <script src="js/supabase-config.js?v=3"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/chat.js?v=6"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fff5e4">
+  <title>Private Messages</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="admin-body">
+  <main class="admin-shell">
+    <section class="admin-login glass-card" id="admin-login">
+      <p class="eyebrow">private messages</p>
+      <h1>Sign in</h1>
+      <form id="admin-login-form" novalidate onsubmit="return false;">
+        <p class="admin-login-note">Use the email and password for the Supabase account whose UID is in <code>chat_admins</code>.</p>
+        <label for="admin-email">Email</label>
+        <input id="admin-email" type="email" autocomplete="email" placeholder="you@example.com" required>
+        <label for="admin-password">Password</label>
+        <input id="admin-password" type="password" autocomplete="current-password" required>
+        <button class="button button--primary" id="admin-login-button" type="button">SIGN IN</button>
+      </form>
+      <p class="admin-error" id="admin-login-error" role="alert" hidden></p>
+    </section>
+
+    <section class="admin-chat glass-card" id="admin-chat" hidden>
+      <header class="admin-chat__header"><div><p class="eyebrow">private conversation</p><h1>Sama</h1></div><button class="back-button" id="admin-logout" type="button">Log out</button></header>
+      <p class="admin-status" id="admin-status" aria-live="polite">Loading messages…</p>
+      <div class="admin-messages" id="admin-messages" aria-live="polite"></div>
+      <form class="admin-reply" id="admin-reply-form">
+        <label class="sr-only" for="admin-reply">Reply to Sama</label>
+        <textarea id="admin-reply" rows="2" maxlength="2000" placeholder="Write a reply…" required></textarea>
+        <button class="button button--primary" id="admin-send" type="submit">SEND</button>
+      </form>
+    </section>
+  </main>
+  <script src="js/supabase-config.js?v=3"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/admin.js?v=7"></script>
+</body>
+</html>
